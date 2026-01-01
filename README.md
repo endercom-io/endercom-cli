@@ -25,7 +25,7 @@ Before you begin, ensure you have:
 
 ## Quick Start
 
-### 1. Initialize a Project
+### 1. Initialize an Agent Project
 
 Create a new agent project structure.
 
@@ -61,7 +61,7 @@ The CLI will:
 
 - Check your code for undeclared environment variables.
 - Sync your configuration to the SAM template.
-- Build the project using `sam build`.
+- Build the agent using `sam build`.
 - Deploy using `sam deploy`.
 
 ## Commands
