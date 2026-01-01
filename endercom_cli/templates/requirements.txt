@@ -1,0 +1,5 @@
+endercom
+mangum
+fastapi
+uvicorn
+python-dotenv

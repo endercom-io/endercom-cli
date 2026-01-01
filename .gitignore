@@ -1,0 +1,50 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+env/
+venv/
+.venv/
+pip-log.txt
+pip-delete-this-directory.txt
+.tox/
+.coverage
+.coverage.*
+.cache
+nosetests.xml
+coverage.xml
+*.cover
+*.log
+.pytest_cache/
+.mypy_cache/
+
+# Distribution / Packaging
+build/
+dist/
+*.egg-info/
+.eggs/
+
+# AWS SAM
+.aws-sam/
+
+# Local Environment & Secrets
+.env
+.env.*
+!.env.example
+
+# We generally WANT to commit .endercom/agent.yaml as it is the project config
+# But if you store local secrets there (bad practice, but happens), ignore it.
+# For now, we assume agent.yaml is safe (secrets are references).
+
+# IDEs
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+

@@ -1,0 +1,32 @@
+AWSTemplateFormatVersion: "2010-09-09"
+Transform: AWS::Serverless-2016-10-31
+Description: Endercom agent
+
+Globals:
+  Function:
+    Runtime: {{RUNTIME}}
+    Timeout: 30
+    MemorySize: 1024
+
+Resources:
+  AgentFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      Handler: app.handler
+      CodeUri: .
+      Events:
+        HttpApi:
+          Type: HttpApi
+      Environment:
+        Variables:
+          # Store this in SSM as: /endercom/<stack>/FREQUENCY_API_KEY
+          FREQUENCY_API_KEY: !Sub "{{resolve:secretsmanager:endercom/${AWS::StackName}/FREQUENCY_API_KEY:SecretString}}"
+          FREQUENCY_ID: "{{FREQUENCY_ID}}"
+          AGENT_ID: "{{AGENT_NAME}}"
+    Metadata:
+      BuildMethod: {{RUNTIME}}
+
+Outputs:
+  HttpApiUrl:
+    Description: HTTP API endpoint
+    Value: !Sub "https://${ServerlessHttpApi}.execute-api.${AWS::Region}.amazonaws.com"
