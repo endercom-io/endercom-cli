@@ -26,3 +26,10 @@ agent.set_message_handler(handle_message)
 
 app = agent.create_server_wrapper(server_options)
 handler = Mangum(app)
+
+# If you want to test the agent locally, uncomment the following line:
+# agent.run()
+
+# Then run:
+# python app.py
+# Then you can send a message to the agent at http://localhost:8004
