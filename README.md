@@ -2,6 +2,8 @@
 
 A command-line interface for deploying and managing AI agents on AWS Lambda using the Endercom framework.
 
+[![PyPI version](https://img.shields.io/pypi/v/endercom-cli.svg)](https://pypi.org/project/endercom-cli/)
+
 ## Installation
 
 ```bash
@@ -12,16 +14,16 @@ pip install endercom-cli
 
 Before you begin, ensure you have:
 
-1.  **An AWS Account**: You'll need credentials to deploy resources.
-2.  **AWS CLI Configured**: Run `aws login` to set your credentials and default region.
-    ```bash
-    brew install awscli
-    aws login
-    ```
-3.  **AWS SAM CLI**: Required for building and deploying the serverless stack.
-    ```bash
-    brew install aws-sam-cli
-    ```
+1. **An AWS Account**: You'll need credentials to deploy resources.
+2. **AWS CLI Configured**: Run `aws login` to set your credentials and default region.
+   ```bash
+   brew install awscli
+   aws login
+   ```
+3. **AWS SAM CLI**: Required for building and deploying the serverless stack.
+   ```bash
+   brew install aws-sam-cli
+   ```
 
 ## Quick Start
 
@@ -30,7 +32,7 @@ Before you begin, ensure you have:
 Create a new agent project structure.
 
 ```bash
-endercom init
+endercom init <agent-name>
 ```
 
 This scaffolds a directory with:
@@ -45,7 +47,7 @@ This scaffolds a directory with:
 If your agent needs API keys (e.g., `OPENAI_API_KEY`), add them to the secrets manager.
 
 ```bash
-cd my-agent
+cd <agent-name>
 endercom secrets set OPENAI_API_KEY "sk-..."
 ```
 
@@ -71,7 +73,7 @@ The CLI will:
 | `init <name>`             | Create a new agent project.                            |
 | `deploy`                  | Build and deploy the agent stack to AWS.               |
 | `configure`               | Update project configuration.                          |
-| `secrets set <key> <val>` | securely store secrets in AWS Secrets Manager.         |
+| `secrets set <key> <val>` | Securely store secrets in AWS Secrets Manager.         |
 | `logs`                    | Tail real-time logs from your Lambda function.         |
 | `destroy`                 | Tear down the AWS stack and remove associated secrets. |
 
