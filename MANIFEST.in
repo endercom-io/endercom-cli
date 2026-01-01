@@ -1,0 +1,2 @@
+recursive-include endercom_cli/templates *
+
