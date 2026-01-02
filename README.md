@@ -37,7 +37,8 @@ endercom init <agent-name>
 
 This scaffolds a directory with:
 
-- `app.py`: Your agent logic
+- `agent.py`: Your agent logic (where you write code)
+- `app.py`: Server entry point and wrapper
 - `template.yaml`: AWS SAM infrastructure definition
 - `requirements.txt`: Python dependencies
 - `.endercom/agent.yaml`: CLI configuration

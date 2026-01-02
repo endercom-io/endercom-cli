@@ -3,3 +3,4 @@ mangum
 fastapi
 uvicorn
 python-dotenv
+dotenv

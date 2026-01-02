@@ -154,7 +154,7 @@ def init(
     (ender_dir / "agent.yaml").write_text(yaml.safe_dump(agent_cfg, sort_keys=False))
 
     # Copy templates
-    for fname in ["app.py", "requirements.txt", "template.yaml", ".env.example"]:
+    for fname in ["agent.py", "requirements.txt", "template.yaml", ".env.example", "app.py"]:
         src = TEMPLATE_DIR / fname
         dst = project_dir / fname
         
@@ -280,7 +280,7 @@ import ast
 import sys
 
 def scan_imports(app_path: Path) -> set[str]:
-    """Scan app.py for imports using AST, excluding stdlib."""
+    """Scan agent.py for imports using AST, excluding stdlib."""
     if not app_path.exists():
         return set()
         
@@ -314,7 +314,7 @@ LIBRARY_ENV_VARS = {
 }
 
 def scan_env_vars(app_path: Path) -> set[str]:
-    """Scan app.py for os.environ calls using AST and check for implicit library usage."""
+    """Scan agent.py for os.environ calls using AST and check for implicit library usage."""
     if not app_path.exists():
         return set()
     
@@ -441,7 +441,7 @@ def deploy(
     region = cfg.get("region", "us-east-1")
 
     # Auto-detect missing env vars
-    app_path = project_dir / "app.py"
+    app_path = project_dir / "agent.py"
     if app_path.exists():
         detected_env = scan_env_vars(app_path)
         
@@ -619,7 +619,7 @@ def deploy(
 
 
     # Auto-scan requirements
-    app_path = project_dir / "app.py"
+    app_path = project_dir / "agent.py"
     req_path = project_dir / "requirements.txt"
     if app_path.exists() and req_path.exists():
         detected = scan_imports(app_path)
